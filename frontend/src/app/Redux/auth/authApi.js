@@ -2,11 +2,20 @@ import { apiSlice } from "../baseApi/apiSlice"
 
 export const authApi= apiSlice.injectEndpoints({
 
-  tagTypes:['update'],
+
   endpoints: (builder)=> ({
     register: builder.mutation({
       query:(data)=> ({
         url: "/register",
+        method: "POST",
+        body: data
+      }),
+
+      
+    }),
+    blog: builder.mutation({
+      query:(data)=> ({
+        url: "/blog",
         method: "POST",
         body: data
       }),
@@ -35,4 +44,4 @@ export const authApi= apiSlice.injectEndpoints({
 })
 
 
-export const{useRegisterMutation,useLoginMutation}=authApi
+export const{useRegisterMutation,useLoginMutation,useBlogMutation}=authApi
